@@ -16,12 +16,12 @@ It's necessary to specify at the end of the file the path of the input file and 
 
 ## **to_csv_all_stations.py**
 
-# **ONE STATION**
+### **ONE STATION**
 Converts a file outputted by SBE data processing to CSV (comma-separated) format for easy manipulation in both R and Excel.
 
 It's necessary to specify at the end of the file the path of the input file and the path of the output file.
 
-# **MULTIPLE STATIONS**
+### **MULTIPLE STATIONS**
 
 Performs the same task as "ONE STATION" but for all files in a folder.
 
