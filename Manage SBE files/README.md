@@ -1,1 +1,1 @@
-hello
+This script collects all SBE files from a folder. With the data from all of them, it creates a Python matrix (the first column is the station name of the data). Finally, it puts all the data with their respective headers into a CSV file. To use it, you need to specify the path of the folder where your SBE files are located on line 68, and the path where you want the resulting CSV to be created on line 102.
