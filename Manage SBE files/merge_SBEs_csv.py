@@ -39,31 +39,6 @@ def matrix_csv (nombre_archivo_csv, data_matrix, headers):
         for fila in data_matrix:
             escritor_csv.writerow(fila)
 
-def resumir_matriz(data_matrix):
-    # Crear un diccionario para agrupar los valores por combinación única de columna 1 y 2
-    grupos = {}
-    for fila in data_matrix:
-        clave = (fila[0], fila[1])  # Combinación única de columna 1 y 2
-        valores = fila[2:]  # Valores a partir de la columna 3
-        if clave not in grupos:
-            grupos[clave] = valores
-        else:
-            grupos[clave] = [sum(par) for par in zip(grupos[clave], valores)]  # Sumar valores existentes con nuevos
-
-    # Calcular la media para cada grupo
-    medias_por_grupo = {}
-    for clave, valores in grupos.items():
-        cantidad_filas = len(data_matrix)  # Cantidad de filas con la misma combinación
-        medias_por_grupo[clave] = [valor / cantidad_filas for valor in valores]
-
-    # Crear una nueva matriz con las medias
-    matriz_resumen = []
-    for clave, valores in medias_por_grupo.items():
-        fila_resumen = list(clave) + valores
-        matriz_resumen.append(fila_resumen)
-
-    return matriz_resumen
-
 # PUT HERE THE PATH WHERE THE SBE FILES ARE
 directorio = r'C:\Users\lerin\Desktop\FARDWO\Terbolesa_nivell_pro\processings\test3_mitjanes1\data'
 # Get the paths of all files in the specified directory
