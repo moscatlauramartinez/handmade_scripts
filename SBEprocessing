@@ -1,0 +1,15 @@
+@ sbebatch program: C:\Program Files (x86)\Sea-Bird\SBEDataProcessing-Win32
+@ % 1 = C:\Users\lerin\Desktop\TESI\CAMP\CTDs_febrer25\test5_batch
+@ aquest script = C:\Users\lerin\Desktop\TESI\CAMP\CTDs_febrer25\test5_batch\scripts\first.txt
+
+@ per executar: & "C:\Program Files (x86)\Sea-Bird\SBEDataProcessing-Win32\SBEBatch.exe" "C:\Users\lerin\Desktop\TESI\CAMP\CTDs_febrer25\test5_batch\scripts\first.txt" "C:\Users\lerin\Desktop\TESI\CAMP\CTDs_febrer25\test5_batch\"
+
+@echo off
+mkdir %1\analysis\1_DC && mkdir %1\analysis\2_WE && mkdir %1\analysis\3_F && mkdir %1\analysis\4_A && mkdir %1\analysis\5_CTM && mkdir %1\analysis\6_LE
+
+datcnv /i%1\data\*.xml /c%1\scripts\25P-1182_250212.xmlcon /p%1\scripts\1_DatCnv.psa /o%1\analysis\1_DC\
+wildedit /i%1\analysis\1_DC\*.cnv /p%1\scripts\2_WildEdit.psa /o%1\analysis\2_WE\
+filter /i%1\analysis\2_WE\*.cnv /p%1\scripts\3_Filter.psa /o%1\analysis\3_F\
+alignctd /i%1\analysis\3_F\*.cnv /p%1\scripts\4_AlignCTD.psa /o%1\analysis\4_A\
+celltm /i%1\analysis\4_A\*.cnv /p%1\scripts\5_CellTM.psa /o%1\analysis\5_CTM\
+loopedit /i%1\analysis\5_CTM\*.cnv /p%1\scripts\6_LoopEdit.psa /o%1\analysis\6_LE\
