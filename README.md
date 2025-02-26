@@ -1,3 +1,11 @@
+## **SBEprocessing** 
+
+Function: process raw ctd files from sbe25plus
+
+Input: .xml (raw files), .xmlcon (ctd configuration file), .psa (sbe data processing configuration files)
+
+Output: processed files and intermediate files
+
 ## **plot_sbe_data.R** 
 
 Function: Profiles of all measured variables from a station. It does not consider values of -9.99E-29, which have been considered erroneous during processing.
